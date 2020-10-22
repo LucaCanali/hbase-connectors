@@ -22,13 +22,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.apache.hbase.connectors</groupId>
+    <groupId>ch.cern.hbase.connectors</groupId>
     <artifactId>spark</artifactId>
     <version>${revision}</version>
     <relativePath>../</relativePath>
   </parent>
 
-  <groupId>org.apache.hbase.connectors.spark</groupId>
+  <groupId>ch.cern.hbase.connectors.spark</groupId>
   <artifactId>hbase-spark-protocol</artifactId>
   <name>Apache HBase - Spark Protocol</name>
 

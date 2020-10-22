@@ -22,7 +22,7 @@
   -->
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.apache.hbase.connectors</groupId>
+    <groupId>ch.cern.hbase.connectors</groupId>
     <artifactId>hbase-connectors</artifactId>
     <version>${revision}</version>
     <relativePath>../</relativePath>
@@ -46,7 +46,7 @@
         <version>${avro.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.apache.hbase.connectors.kafka</groupId>
+        <groupId>ch.cern.hbase.connectors.kafka</groupId>
         <artifactId>hbase-kafka-model</artifactId>
         <version>${revision}</version>
       </dependency>

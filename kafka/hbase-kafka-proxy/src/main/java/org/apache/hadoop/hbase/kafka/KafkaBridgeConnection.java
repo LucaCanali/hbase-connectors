@@ -76,7 +76,6 @@ public class KafkaBridgeConnection implements Connection {
    * @param conf hbase configuration
    * @param routingRules a set of routing rules
    * @param producer a kafka producer
-   * @throws IOException on error
    */
   @VisibleForTesting
   public KafkaBridgeConnection(Configuration conf, TopicRoutingRules routingRules,

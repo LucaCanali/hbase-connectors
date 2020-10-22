@@ -40,11 +40,11 @@
     <relativePath/>
     <!-- no parent resolution -->
   </parent>
-  <groupId>org.apache.hbase.connectors</groupId>
+  <groupId>ch.cern.hbase.connectors</groupId>
   <artifactId>hbase-connectors</artifactId>
   <!-- See https://maven.apache.org/maven-ci-friendly.html -->
   <version>${revision}</version>
-  <name>Apache HBase Connectors</name>
+  <name>CERN Apache HBase Connectors</name>
   <packaging>pom</packaging>
   <description>
     Connectors to Apache HBase.
@@ -122,8 +122,8 @@
   <developers/>
   <properties>
     <!-- See https://maven.apache.org/maven-ci-friendly.html -->
-    <revision>1.0.1_spark-3.0.1_1</revision>
-    <maven.javadoc.skip>true</maven.javadoc.skip>
+    <revision>1.0.1_spark-3.0.1_4</revision>
+    <maven.javadoc.skip>false</maven.javadoc.skip>
     <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm</maven.build.timestamp.format>
     <buildDate>${maven.build.timestamp}</buildDate>
     <compileSource>1.8</compileSource>
@@ -305,6 +305,19 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+
   <build>
     <extensions>
       <extension>
@@ -434,6 +447,57 @@
       </plugins>
     </pluginManagement>
     <plugins>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.8</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.5</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>

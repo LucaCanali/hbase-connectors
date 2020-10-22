@@ -21,12 +21,12 @@
 -->
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.apache.hbase.connectors</groupId>
+    <groupId>ch.cern.hbase.connectors</groupId>
     <artifactId>spark</artifactId>
     <version>${revision}</version>
     <relativePath>../</relativePath>
   </parent>
-  <groupId>org.apache.hbase.connectors.spark</groupId>
+  <groupId>ch.cern.hbase.connectors.spark</groupId>
   <artifactId>hbase-spark-it</artifactId>
   <name>Apache HBase - Spark Integration Tests</name>
   <description>Integration and System tests for HBase</description>
@@ -184,7 +184,7 @@
       <type>test-jar</type>
     </dependency>
     <dependency>
-      <groupId>org.apache.hbase.connectors.spark</groupId>
+      <groupId>ch.cern.hbase.connectors.spark</groupId>
       <artifactId>hbase-spark</artifactId>
       <version>${revision}</version>
     </dependency>

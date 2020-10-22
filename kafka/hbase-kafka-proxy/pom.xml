@@ -22,12 +22,12 @@
   -->
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.apache.hbase.connectors</groupId>
+    <groupId>ch.cern.hbase.connectors</groupId>
     <artifactId>kafka</artifactId>
     <version>${revision}</version>
     <relativePath>../</relativePath>
   </parent>
-  <groupId>org.apache.hbase.connectors.kafka</groupId>
+  <groupId>ch.cern.hbase.connectors.kafka</groupId>
   <artifactId>hbase-kafka-proxy</artifactId>
   <name>Apache HBase - Kafka Proxy</name>
   <description>Proxy that forwards HBase replication events to a Kakfa broker</description>
@@ -140,7 +140,7 @@
       <artifactId>avro</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.hbase.connectors.kafka</groupId>
+      <groupId>ch.cern.hbase.connectors.kafka</groupId>
       <artifactId>hbase-kafka-model</artifactId>
     </dependency>
     <dependency>
