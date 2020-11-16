@@ -358,7 +358,7 @@
         </property>
       </activation>
       <properties>
-        <hadoop.version>3.0</hadoop.version>
+        <hadoop.version>3.2.1</hadoop.version>
       </properties>
       <dependencies>
         <dependency>
