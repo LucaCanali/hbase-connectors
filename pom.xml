@@ -435,6 +435,39 @@
     </pluginManagement>
     <plugins>
       <plugin>
+        <groupId>org.jfrog.buildinfo</groupId>
+        <artifactId>artifactory-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <inherited>false</inherited>
+        <executions>
+          <execution>
+            <id>build-info</id>
+            <goals>
+              <goal>publish</goal>
+            </goals>
+            <configuration>
+              <deployProperties>
+              </deployProperties>
+              <artifactory>
+                <includeEnvVars>true</includeEnvVars>
+                <envVarsExcludePatterns>*password*,*secret*,*key*,*token*,*passphrase*
+                </envVarsExcludePatterns>
+                <timeoutSec>60</timeoutSec>
+              </artifactory>
+              <publisher>
+                <contextUrl>https://artifactory.cern.ch:443</contextUrl>
+                <username>${username}</username>
+                <password>${password}</password>
+                <excludePatterns>*-tests.jar</excludePatterns>
+                <repoKey>beco-thirdparty-local</repoKey>
+                <snapshotRepoKey>beco-thirdparty-local</snapshotRepoKey>
+                <publishBuildInfo>false</publishBuildInfo>
+              </publisher>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
         <version>3.0.0-M3</version>
@@ -543,6 +576,52 @@
       </plugin>
     </plugins>
   </build>
+  <repositories>
+    <repository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>bintray</id>
+      <name>bintray</name>
+      <url>https://jcenter.bintray.com</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+    </pluginRepository>
+    <pluginRepository>
+      <id>bintray</id>
+      <name>bintray</name>
+      <url>https://jcenter.bintray.com</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories>
   <profiles>
     <!-- this profile should be activated for release builds -->
     <profile>
