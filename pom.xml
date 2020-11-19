@@ -122,7 +122,7 @@
   <developers/>
   <properties>
     <!-- See https://maven.apache.org/maven-ci-friendly.html -->
-    <revision>1.0.1_spark-3.0.1-cern1_1</revision>
+    <revision>1.0.1_spark-3.0.1-cern1_2</revision>
     <maven.javadoc.skip>true</maven.javadoc.skip>
     <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm</maven.build.timestamp.format>
     <buildDate>${maven.build.timestamp}</buildDate>
@@ -134,7 +134,7 @@
     <exec.maven.version>1.6.0</exec.maven.version>
     <audience-annotations.version>0.5.0</audience-annotations.version>
     <junit.version>4.12</junit.version>
-    <hbase-thirdparty.version>2.2.1</hbase-thirdparty.version>
+    <hbase-thirdparty.version>2.2.1-cern1</hbase-thirdparty.version>
     <hadoop-two.version>2.8.5</hadoop-two.version>
     <hadoop-three.version>3.2.1-cern1</hadoop-three.version>
     <hadoop-three.test.version>3.2.1</hadoop-three.test.version>
