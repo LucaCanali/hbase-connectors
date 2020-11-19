@@ -122,21 +122,23 @@
   <developers/>
   <properties>
     <!-- See https://maven.apache.org/maven-ci-friendly.html -->
-    <revision>1.0.1_spark-3.0.1_1</revision>
+    <revision>1.0.1_spark-3.0.1-cern1_1</revision>
     <maven.javadoc.skip>true</maven.javadoc.skip>
     <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm</maven.build.timestamp.format>
     <buildDate>${maven.build.timestamp}</buildDate>
     <compileSource>1.8</compileSource>
     <java.min.version>${compileSource}</java.min.version>
     <maven.min.version>3.5.0</maven.min.version>
-    <hbase.version>2.2.4</hbase.version>
+    <hbase.version>2.2.4-cern1</hbase.version>
+    <hbase.test.version>2.2.4</hbase.test.version>
     <exec.maven.version>1.6.0</exec.maven.version>
     <audience-annotations.version>0.5.0</audience-annotations.version>
     <junit.version>4.12</junit.version>
     <hbase-thirdparty.version>2.2.1</hbase-thirdparty.version>
     <hadoop-two.version>2.8.5</hadoop-two.version>
-    <hadoop-three.version>3.2.1</hadoop-three.version>
-    <hadoop.version>${hadoop-two.version}</hadoop.version>
+    <hadoop-three.version>3.2.1-cern1</hadoop-three.version>
+    <hadoop-three.test.version>3.2.1</hadoop-three.test.version>
+    <hadoop.version>${hadoop-three.version}</hadoop.version>
     <slf4j.version>1.7.25</slf4j.version>
     <checkstyle.version>8.18</checkstyle.version>
     <maven.checkstyle.version>3.1.0</maven.checkstyle.version>
@@ -201,7 +203,7 @@
       <dependency>
         <groupId>org.apache.hbase</groupId>
         <artifactId>hbase-annotations</artifactId>
-        <version>${hbase.version}</version>
+        <version>${hbase.test.version}</version>
         <type>test-jar</type>
         <!--Was test scope only but if we want to run hbase-it tests, need the annotations test jar-->
       </dependency>
@@ -223,7 +225,7 @@
       <dependency>
         <groupId>org.apache.hbase</groupId>
         <artifactId>hbase-common</artifactId>
-        <version>${hbase.version}</version>
+        <version>${hbase.test.version}</version>
         <type>test-jar</type>
         <scope>test</scope>
       </dependency>
@@ -240,7 +242,7 @@
       <dependency>
         <groupId>org.apache.hbase</groupId>
         <artifactId>hbase-hadoop2-compat</artifactId>
-        <version>${hbase.version}</version>
+        <version>${hbase.test.version}</version>
         <type>test-jar</type>
         <scope>test</scope>
       </dependency>
@@ -252,7 +254,7 @@
       <dependency>
         <groupId>org.apache.hbase</groupId>
         <artifactId>hbase-hadoop-compat</artifactId>
-        <version>${hbase.version}</version>
+        <version>${hbase.test.version}</version>
         <type>test-jar</type>
         <scope>test</scope>
       </dependency>
@@ -264,14 +266,14 @@
       <dependency>
         <groupId>org.apache.hbase</groupId>
         <artifactId>hbase-server</artifactId>
-        <version>${hbase.version}</version>
+        <version>${hbase.test.version}</version>
         <type>test-jar</type>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.hbase</groupId>
         <artifactId>hbase-zookeeper</artifactId>
-        <version>${hbase.version}</version>
+        <version>${hbase.test.version}</version>
         <type>test-jar</type>
         <scope>test</scope>
       </dependency>
@@ -293,14 +295,14 @@
       <dependency>
         <artifactId>hbase-it</artifactId>
         <groupId>org.apache.hbase</groupId>
-        <version>${hbase.version}</version>
+        <version>${hbase.test.version}</version>
         <type>test-jar</type>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.hbase</groupId>
         <artifactId>hbase-shaded-testing-util</artifactId>
-        <version>${hbase.version}</version>
+        <version>${hbase.test.version}</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
@@ -407,7 +409,7 @@
             <dependency>
               <groupId>org.apache.hbase</groupId>
               <artifactId>hbase-checkstyle</artifactId>
-              <version>${hbase.version}</version>
+              <version>${hbase.test.version}</version>
             </dependency>
             <dependency>
               <groupId>com.puppycrawl.tools</groupId>
@@ -590,6 +592,15 @@
       <id>bintray</id>
       <name>bintray</name>
       <url>https://jcenter.bintray.com</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>artifactory</id>
+      <name>artifactory</name>
+      <url>https://artifactory.cern.ch/beco-thirdparty-local</url>
       <layout>default</layout>
       <snapshots>
         <enabled>false</enabled>
