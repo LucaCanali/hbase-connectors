@@ -150,9 +150,9 @@ class IsNullLogicExpression (val columnName:String,
 class GreaterThanLogicExpression (override val columnName:String,
                                   override val valueFromQueryIndex:Int)
   extends DynamicLogicExpression with CompareTrait{
-  override val filterOps = JavaBytesEncoder.Greater
+  override val filterOps = JavaBytesEncoder.GreaterEqual
   override def appendToExpression(strBuilder: StringBuilder): Unit = {
-    strBuilder.append(columnName + " > " + valueFromQueryIndex)
+    strBuilder.append(columnName + " >= " + valueFromQueryIndex)
   }
 }
 
@@ -170,9 +170,9 @@ class GreaterThanOrEqualLogicExpression (override val columnName:String,
 class LessThanLogicExpression (override val columnName:String,
                                override val valueFromQueryIndex:Int)
   extends DynamicLogicExpression with CompareTrait {
-  override val filterOps = JavaBytesEncoder.Less
+  override val filterOps = JavaBytesEncoder.LessEqual
   override def appendToExpression(strBuilder: StringBuilder): Unit = {
-    strBuilder.append(columnName + " < " + valueFromQueryIndex)
+    strBuilder.append(columnName + " <= " + valueFromQueryIndex)
   }
 }
 
